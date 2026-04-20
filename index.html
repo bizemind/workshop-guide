@@ -68,7 +68,7 @@ body{
 .icon{
   width:52px;height:52px;flex-shrink:0;border-radius:var(--radius-sm);
   border:1px solid var(--border);background:var(--chip);
-  display:flex;align-items:center;justify-content:center;font-size:22px;
+  object-fit:cover;
 }
 .kit-name{font-size:16px;font-weight:600}
 .kit-sub{font-size:12px;color:var(--muted);margin-top:2px}
@@ -110,7 +110,7 @@ body{
 const WORKSHOPS = [
   {
     name: "Block Printing",
-    emoji: "https://creatis.in/cdn/shop/files/block_3.png?v=1750371108&width=990",
+    emoji: "🪵",
     category: "Print",
     age: "10+",
     skill: "All levels",
@@ -118,11 +118,12 @@ const WORKSHOPS = [
     takes: "Scarf, tableware, pillow cover, apron, bag or dress",
     best: ["First-timers", "Groups", "Casual creatives"],
     notesure: "Want something fun and easy → Block Printing",
-    url: "https://creatis.in/products/block-print-workshop"
+    url: "https://creatis.in/products/block-print-workshop",
+    img: "https://creatis.in/cdn/shop/files/block_3.png?v=1750371108&width=990"
   },
   {
     name: "Color Making",
-    emoji: "https://creatis.in/cdn/shop/files/IMG_20190130_120800-1_1.jpg?v=1763722250&width=990",
+    emoji: "🎨",
     category: "Color",
     age: "18+",
     skill: "All levels",
@@ -130,11 +131,12 @@ const WORKSHOPS = [
     takes: "Your custom color palette",
     best: ["Designers", "Detail-oriented minds"],
     notesure: "Want to understand color deeply → Color Making",
-    url: "https://creatis.in/products/color-making-workshop"
+    url: "https://creatis.in/products/color-making-workshop",
+    img: "https://creatis.in/cdn/shop/files/IMG_20190130_120800-1_1.jpg?v=1763722250&width=990"
   },
   {
     name: "Block Making",
-    emoji: "https://creatis.in/cdn/shop/files/block_making_JPG.webp?v=1761556647&width=990",
+    emoji: "🔨",
     category: "Carve",
     age: "18+",
     skill: "Intermediate – Advanced",
@@ -142,11 +144,12 @@ const WORKSHOPS = [
     takes: "A hand-carved printing block",
     best: ["Hands-on builders", "Craft enthusiasts"],
     notesure: "Want to build something from scratch → Block Making",
-    url: "https://creatis.in/products/block-making-workshop"
+    url: "https://creatis.in/products/block-making-workshop",
+    img: "https://creatis.in/cdn/shop/files/block_making_JPG.webp?v=1761556647&width=990"
   },
   {
     name: "Embroidery",
-    emoji: "https://creatis.in/cdn/shop/files/IMG_7304_2.jpg?v=1751604404&width=990",
+    emoji: "🧵",
     category: "Stitch",
     age: "18+",
     skill: "All levels",
@@ -154,7 +157,8 @@ const WORKSHOPS = [
     takes: "Scarf, hooped sampler, tableware, bag or shirt",
     best: ["Precision lovers", "Quiet makers"],
     notesure: "Want a calm, slow experience → Embroidery",
-    url: "https://creatis.in/products/embroidery-workshop"
+    url: "https://creatis.in/products/embroidery-workshop",
+    img: "https://creatis.in/cdn/shop/files/IMG_7304_2.jpg?v=1751604404&width=990"
   }
 ];
 
@@ -201,7 +205,7 @@ function render() {
     card.className = "card";
     card.innerHTML = `
       <div class="card-header">
-        <div class="icon">${w.emoji}</div>
+        <img class="icon" src="${w.img}" alt="${w.name}" />
         <div>
           <div class="kit-name">${w.name}</div>
           <div class="kit-sub">${w.category}</div>
