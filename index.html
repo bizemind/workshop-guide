@@ -84,6 +84,8 @@ body{
 .takes-home span{color:var(--muted)}
 
 .empty{font-size:14px;color:var(--faint);text-align:center;padding:1.5rem 0}
+.book-link{display:inline-block;font-size:13px;font-weight:600;color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);padding:7px 14px;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.book-link:hover{border-color:var(--muted)}
 </style>
 </head>
 <body>
@@ -108,43 +110,51 @@ body{
 const WORKSHOPS = [
   {
     name: "Block Printing",
-    emoji: "🪵",
+    emoji: "https://creatis.in/cdn/shop/files/block_3.png?v=1750371108&width=990",
     category: "Print",
     age: "10+",
+    skill: "All levels",
     tagline: "Create patterns on fabric using hand-carved wooden blocks. Relaxed, hands-on, and beginner-friendly.",
-    takes: "Scarf or tableware",
+    takes: "Scarf, tableware, pillow cover, apron, bag or dress",
     best: ["First-timers", "Groups", "Casual creatives"],
-    notesure: "Want something fun and easy → Block Printing"
+    notesure: "Want something fun and easy → Block Printing",
+    url: "https://creatis.in/products/block-print-workshop"
   },
   {
     name: "Color Making",
-    emoji: "🎨",
+    emoji: "https://creatis.in/cdn/shop/files/IMG_20190130_120800-1_1.jpg?v=1763722250&width=990",
     category: "Color",
     age: "18+",
-    tagline: "Mix and build colors from scratch using paint. Understand ratios and color logic with precision.",
+    skill: "All levels",
+    tagline: "Mix and build colors from scratch using pigment. Understand ratios and color logic with precision.",
     takes: "Your custom color palette",
     best: ["Designers", "Detail-oriented minds"],
-    notesure: "Want to understand color deeply → Color Making"
+    notesure: "Want to understand color deeply → Color Making",
+    url: "https://creatis.in/products/color-making-workshop"
   },
   {
     name: "Block Making",
-    emoji: "🔨",
+    emoji: "https://creatis.in/cdn/shop/files/block_making_JPG.webp?v=1761556647&width=990",
     category: "Carve",
     age: "18+",
+    skill: "Intermediate – Advanced",
     tagline: "Carve your own wooden printing block. Design in reverse, learn carving techniques, and take home a tool you made.",
     takes: "A hand-carved printing block",
     best: ["Hands-on builders", "Craft enthusiasts"],
-    notesure: "Want to build something from scratch → Block Making"
+    notesure: "Want to build something from scratch → Block Making",
+    url: "https://creatis.in/products/block-making-workshop"
   },
   {
     name: "Embroidery",
-    emoji: "🧵",
+    emoji: "https://creatis.in/cdn/shop/files/IMG_7304_2.jpg?v=1751604404&width=990",
     category: "Stitch",
     age: "18+",
+    skill: "All levels",
     tagline: "Build texture using needle and thread. Learn foundational stitches in a slow, focused, meditative process.",
-    takes: "A finished sampler",
+    takes: "Scarf, hooped sampler, tableware, bag or shirt",
     best: ["Precision lovers", "Quiet makers"],
-    notesure: "Want a calm, slow experience → Embroidery"
+    notesure: "Want a calm, slow experience → Embroidery",
+    url: "https://creatis.in/products/embroidery-workshop"
   }
 ];
 
@@ -198,7 +208,7 @@ function render() {
           <div class="tag-row">
             <span class="tag">Age ${w.age}</span>
             <span class="tag">2 hrs</span>
-            <span class="tag">All levels</span>
+            <span class="tag">${w.skill}</span>
           </div>
         </div>
       </div>
@@ -206,7 +216,8 @@ function render() {
       <div class="accordion-content" id="${uid}">
         <p class="kit-tagline">${w.tagline}</p>
         <p class="takes-home"><span>You take home: </span>${w.takes}</p>
-        <div class="tag-row">${w.best.map(b => `<span class="tag">${b}</span>`).join("")}</div>
+        <div class="tag-row" style="margin-bottom:14px">${w.best.map(b => `<span class="tag">${b}</span>`).join("")}</div>
+        <a class="book-link" href="${w.url}" target="_blank">Book this workshop ↗</a>
       </div>`;
     grid.appendChild(card);
   });
