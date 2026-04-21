@@ -86,6 +86,9 @@ body{
 .empty{font-size:14px;color:var(--faint);text-align:center;padding:1.5rem 0}
 .book-link{display:inline-block;font-size:13px;font-weight:600;color:var(--text);border:1px solid var(--border);border-radius:var(--radius-sm);padding:7px 14px;text-decoration:none;-webkit-tap-highlight-color:transparent}
 .book-link:hover{border-color:var(--muted)}
+.signature{font-size:12px;color:var(--faint);text-align:center;margin-top:1.5rem}
+.signature a{color:var(--muted);text-decoration:none}
+.signature a:hover{color:var(--text)}
 </style>
 </head>
 <body>
@@ -105,6 +108,8 @@ body{
 
   <div id="grid"></div>
 
+  <div class="signature">Built by <a href="https://creatis.in/pages/stack" target="_blank">The Creatis Stack</a></div>
+
 </div>
 <script>
 const WORKSHOPS = [
@@ -116,7 +121,7 @@ const WORKSHOPS = [
     takes: "Scarf, table linen, pillow cover, apron, bag, dress or vest",
     products: ["Scarf","Table Linen","Pillow Cover","Apron","Bag","Dress","Vest"],
     best: ["First-timers", "Groups", "Casual creatives"],
-    notesure: "Want to build patterns, one print at a time → Block Printing",
+    notesure: "Want something fun and easy → Block Printing",
     url: "https://creatis.in/products/block-print-workshop",
     img: "https://creatis.in/cdn/shop/files/block_3.png?v=1750371108&width=990"
   },
@@ -140,7 +145,7 @@ const WORKSHOPS = [
     takes: "Hand-carved wooden blocks",
     products: ["Hand-Carved Wooden Blocks"],
     best: ["Hands-on builders", "Craft enthusiasts"],
-    notesure: "Want to carve and build your own tool → Block Making",
+    notesure: "Want to build something from scratch → Block Making",
     url: "https://creatis.in/products/block-making-workshop",
     img: "https://creatis.in/cdn/shop/files/block_making_JPG.webp?v=1761556647&width=990"
   },
@@ -152,7 +157,7 @@ const WORKSHOPS = [
     takes: "Scarf, hooped sampler, table linen, bag or shirt",
     products: ["Scarf","Hooped Sampler","Table Linen","Bag","Shirt"],
     best: ["Precision lovers", "Quiet makers"],
-    notesure: "Want to work and build fine detail → Embroidery",
+    notesure: "Want a calm, slow experience → Embroidery",
     url: "https://creatis.in/products/embroidery-workshop",
     img: "https://creatis.in/cdn/shop/files/IMG_7304_2.jpg?v=1751604404&width=990"
   }
