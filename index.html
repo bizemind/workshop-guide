@@ -44,7 +44,7 @@ body{
 .header span{font-size:13px;color:var(--muted)}
 
 .filter-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.125rem;margin-bottom:1rem}
-.filter-label{font-size:12px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
+.filter-label{font-size:13px;font-weight:600;color:var(--muted);margin-bottom:12px}
 .filter-pills{display:flex;flex-wrap:wrap;gap:6px}
 .filter-pill{
   font-size:13px;padding:5px 14px;border-radius:var(--radius-pill);
@@ -97,7 +97,7 @@ body{
   </div>
 
   <div class="filter-card">
-    <div class="filter-label">What draws you?</div>
+    <div class="filter-label">What will you make at Creatis?</div>
     <div class="filter-pills" id="filters"></div>
   </div>
 
@@ -110,12 +110,11 @@ body{
 const WORKSHOPS = [
   {
     name: "Block Printing",
-    emoji: "🪵",
-    category: "Print",
     age: "10+",
     skill: "All levels",
     tagline: "Create patterns on fabric using hand-carved wooden blocks. Relaxed, hands-on, and beginner-friendly.",
-    takes: "Scarf, tableware, pillow cover, apron, bag or dress",
+    takes: "Scarf, table linen, pillow cover, apron, bag, dress or vest",
+    products: ["Scarf","Table Linen","Pillow Cover","Apron","Bag","Dress","Vest"],
     best: ["First-timers", "Groups", "Casual creatives"],
     notesure: "Want something fun and easy → Block Printing",
     url: "https://creatis.in/products/block-print-workshop",
@@ -123,12 +122,11 @@ const WORKSHOPS = [
   },
   {
     name: "Color Making",
-    emoji: "🎨",
-    category: "Color",
     age: "18+",
     skill: "All levels",
     tagline: "Mix and build colors from scratch using pigment. Understand ratios and color logic with precision.",
-    takes: "Your custom color palette",
+    takes: "Your custom palette",
+    products: ["Custom Palette"],
     best: ["Designers", "Detail-oriented minds"],
     notesure: "Want to understand color deeply → Color Making",
     url: "https://creatis.in/products/color-making-workshop",
@@ -136,12 +134,11 @@ const WORKSHOPS = [
   },
   {
     name: "Block Making",
-    emoji: "🔨",
-    category: "Carve",
     age: "18+",
     skill: "Intermediate – Advanced",
     tagline: "Carve your own wooden printing block. Design in reverse, learn carving techniques, and take home a tool you made.",
-    takes: "A hand-carved printing block",
+    takes: "Hand-carved wooden blocks",
+    products: ["Hand-Carved Wooden Blocks"],
     best: ["Hands-on builders", "Craft enthusiasts"],
     notesure: "Want to build something from scratch → Block Making",
     url: "https://creatis.in/products/block-making-workshop",
@@ -149,12 +146,11 @@ const WORKSHOPS = [
   },
   {
     name: "Embroidery",
-    emoji: "🧵",
-    category: "Stitch",
     age: "18+",
     skill: "All levels",
     tagline: "Build texture using needle and thread. Learn foundational stitches in a slow, focused, meditative process.",
-    takes: "Scarf, hooped sampler, tableware, bag or shirt",
+    takes: "Scarf, hooped sampler, table linen, bag or shirt",
+    products: ["Scarf","Hooped Sampler","Table Linen","Bag","Shirt"],
     best: ["Precision lovers", "Quiet makers"],
     notesure: "Want a calm, slow experience → Embroidery",
     url: "https://creatis.in/products/embroidery-workshop",
@@ -162,7 +158,11 @@ const WORKSHOPS = [
   }
 ];
 
-const FILTERS = ["All", "Print", "Color", "Carve", "Stitch"];
+const ALL_PRODUCTS = [
+  "Scarf","Table Linen","Pillow Cover","Apron","Bag","Dress","Vest",
+  "Custom Palette","Hand-Carved Wooden Blocks","Hooped Sampler","Shirt"
+];
+const FILTERS = ["All", ...ALL_PRODUCTS];
 let active = "All";
 
 const fEl = document.getElementById("filters");
@@ -184,10 +184,10 @@ function render() {
   const ns = document.getElementById("notesure");
   grid.innerHTML = "";
 
-  const list = WORKSHOPS.filter(w => active === "All" || w.category === active);
+  const list = WORKSHOPS.filter(w => active === "All" || w.products.includes(active));
 
   if (!list.length) {
-    grid.innerHTML = '<div class="empty">No workshops in this category.</div>';
+    grid.innerHTML = '<div class="empty">No workshops make that.</div>';
     ns.style.display = "none";
     return;
   }
@@ -208,7 +208,7 @@ function render() {
         <img class="icon" src="${w.img}" alt="${w.name}" />
         <div>
           <div class="kit-name">${w.name}</div>
-          <div class="kit-sub">${w.category}</div>
+          <div class="kit-sub">${w.products.join(", ")}</div>
           <div class="tag-row">
             <span class="tag">Age ${w.age}</span>
             <span class="tag">2 hrs</span>
