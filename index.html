@@ -160,24 +160,12 @@ const WORKSHOPS = [
     notesure: "Want to build fine detail → Embroidery",
     url: "https://creatis.in/products/embroidery-workshop",
     img: "https://creatis.in/cdn/shop/files/IMG_7304_2.jpg?v=1751604404&width=990"
-  },
-  {
-    name: "Fold & Form",
-    age: "18+",
-    skill: "All levels",
-    tagline: "Fold, pleat, and sculpt fabric into three-dimensional surface textures. A tactile, visual workshop with striking results.",
-    takes: "Pillow cover, wall art or sampler",
-    products: ["Pillow Cover","Wall Art","Sampler"],
-    best: ["Visual artists", "Texture explorers", "Design-minded makers"],
-    notesure: "Want to sculpt fabric into form → Fold & Form",
-    url: "https://creatis.in/products/fold-form-workshop",
-    img: "https://creatis.in/cdn/shop/files/folding.jpg?v=1777889461&width=990"
   }
 ];
 
 const ALL_PRODUCTS = [
   "Scarf","Table Linen","Pillow Cover","Apron","Bag","Dress","Vest",
-  "Hand-Carved Wooden Blocks","Sampler","Wall Art","Shirt"
+  "Hand-Carved Wooden Blocks","Sampler","Shirt"
 ];
 const FILTERS = ["All", ...ALL_PRODUCTS];
 let active = "All";
@@ -238,7 +226,10 @@ function render() {
         <p class="kit-tagline">${w.tagline}</p>
         <p class="takes-home"><span>You take home: </span>${w.takes}</p>
         <div class="tag-row" style="margin-bottom:14px">${w.best.map(b => `<span class="tag">${b}</span>`).join("")}</div>
-        <a class="book-link" href="${w.url}" target="_blank">Book this workshop ↗</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="book-link" href="${w.url}" target="_blank">Book this workshop ↗</a>
+          <a class="book-link" href="https://creatis.in/pages/play" target="_blank">Come Play ↗</a>
+        </div>
       </div>`;
     grid.appendChild(card);
   });
